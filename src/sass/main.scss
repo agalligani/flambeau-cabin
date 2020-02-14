@@ -3,3 +3,9 @@
 @import "./custom";
 @import "~bootstrap/scss/bootstrap";
 @import "navbar";
+
+/* navbar */
+.navbar-default {
+  background-color: #ff0000;
+  border-color: #e7e7e7;
+}
