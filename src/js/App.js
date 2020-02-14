@@ -14,6 +14,7 @@ class App extends Component {
       <Router>
         <MainNav></MainNav>
         <div>
+          <Route path="/home" render={() => <div>Home</div>} />
           <Switch>
             <Route path="/about">
               <RenderAbout />
