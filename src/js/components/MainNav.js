@@ -27,8 +27,8 @@ export default class MainNav extends Component {
             <Nav.Link as={Link} to="/history">
               History
             </Nav.Link>
-            <Nav.Link as={Link} to="/contact">
-              Contact
+            <Nav.Link as={Link} to="/family">
+              Family
             </Nav.Link>
             <Nav.Link as={Link} to="/contact">
               Contact

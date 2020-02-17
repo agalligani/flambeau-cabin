@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import MainNav from "./components/MainNav";
 import About from "./components/About";
+import Family from "./pages/Family";
 import Home from "./components/Home";
 import Contact from "./components/Contact";
 import Users from "./components/Users";
@@ -13,14 +14,17 @@ class App extends Component {
     return (
       <Router>
         <MainNav></MainNav>
+        <Route path="/home" render={() => <div>Home</div>} />
         <div>
-          <Route path="/home" render={() => <div>Home</div>} />
           <Switch>
             <Route path="/about">
               <RenderAbout />
             </Route>
             <Route path="/users">
               <RenderUsers />
+            </Route>
+            <Route path="/family">
+              <RenderFamily />
             </Route>
             <Route path="/">
               <RenderHome />
@@ -42,6 +46,10 @@ function RenderAbout() {
 
 function RenderUsers() {
   return <Users />;
+}
+
+function RenderFamily() {
+  return <Family />;
 }
 
 function RenderContact() {
