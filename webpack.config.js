@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const OpenBrowserPlugin = require("open-browser-webpack-plugin");
 
 module.exports = {
   module: {
@@ -60,6 +61,7 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: "./src/index.html",
       filename: "./index.html"
-    })
+    }),
+    new OpenBrowserPlugin({ url: "http://localhost:8080", delay: 0 })
   ]
 };

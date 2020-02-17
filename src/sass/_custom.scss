@@ -13,7 +13,14 @@ $body-bg: #ffffff;
 }
 
 .w-100 {
-  width: 500px;
-  height: 300px;
-  background-color: yellowgreen;
+  height: 400px;
+  width: 600px !important;
+}
+
+.w-100 img {
+  height: 100%;
+}
+
+.carousel-indicators li {
+  background-color: darkgray; //this can be whatever color you want
 }
