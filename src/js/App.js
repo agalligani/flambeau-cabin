@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import MainNav from "./components/MainNav";
-import About from "./components/About";
+import About from "./pages/About";
 import Family from "./pages/Family";
-import Home from "./components/Home";
-import Contact from "./components/Contact";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
 import Users from "./components/Users";
 // import Home from "./components/Home";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
