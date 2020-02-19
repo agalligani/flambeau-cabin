@@ -2,12 +2,24 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import MainNav from "./components/MainNav";
 import About from "./pages/About";
+import History from "./pages/History";
 import Family from "./pages/Family";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Users from "./components/Users";
+import { library } from "@fortawesome/fontawesome-svg-core";
+// import { fab } from "@fortawesome/free-brands-svg-icons";
+import {
+  faCheckSquare,
+  faCoffee,
+  faBars
+} from "@fortawesome/free-solid-svg-icons";
+
 // import Home from "./components/Home";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+// library.add(fab, faCheckSquare, faCoffee);
+library.add(faCheckSquare, faCoffee, faBars);
 
 class App extends Component {
   render() {
@@ -22,6 +34,11 @@ class App extends Component {
             </Route>
             <Route path="/users">
               <RenderUsers />
+            </Route>
+            <Route path="/history">
+              {() => {
+                return <History />;
+              }}
             </Route>
             <Route path="/family">
               <RenderFamily />
@@ -41,6 +58,10 @@ function RenderHome() {
 }
 
 function RenderAbout() {
+  return <About />;
+}
+
+function RenderHistory() {
   return <About />;
 }
 

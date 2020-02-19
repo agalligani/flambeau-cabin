@@ -35,6 +35,10 @@
   },
   "browserslist": "> 0.25%, not dead",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/free-brands-svg-icons": "^5.12.1",
+    "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "@fortawesome/react-fontawesome": "^0.1.8",
     "bootstrap": "^4.4.1",
     "font-awesome": "^4.7.0",
     "react": "^16.12.0",

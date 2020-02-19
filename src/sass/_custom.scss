@@ -1,44 +1,65 @@
+//Colors
+$flambeau-orange: #dd9933;
+$flambeau-dark-brown: #553311;
+$flambeau-red: #aa3311;
 $body-bg: #ffffff;
 
-.bg-lime {
-  background-color: yellowgreen !important;
-}
+$orange: #fd7e14;
+$yellow: #ffc107;
+$green: #28a745;
+$teal: #20c997;
+$cyan: #17a2b8;
 
-.bg-white {
-  background-color: white !important;
-}
+$gray-100: #6c757d;
+$gray-600: #6c757d;
+$gray-800: #6c757d;
 
-.d-block {
-  display: block;
-}
+$primary: $flambeau-red;
+$secondary: $gray-600 !default;
+$success: $green !default;
+$info: $cyan !default;
+$warning: $yellow !default;
+$danger: $orange !default;
+$light: $gray-100 !default;
+$dark: $gray-800 !default;
 
-.w-100 {
-  height: 400px;
-  width: 600px !important;
-}
+$theme-colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(
+  (
+    "primary": $primary,
+    "secondary": $secondary,
+    "success": $success,
+    "info": $info,
+    "warning": $warning,
+    "danger": $danger,
+    "light": $light,
+    "dark": $dark
+  ),
+  $theme-colors
+);
 
-.w-100 img {
-  height: 100%;
-}
+//Typography
+$navbar-brand-font-size: 2.3rem;
+$banner-font-size: 2.7rem;
 
-.carousel-indicators li {
-  background-color: darkgray; //this can be whatever color you want
-}
-
-.page-banner {
+h1.banner {
+  color: $flambeau-dark-brown;
   font-family: "woodbadge";
-  color: #dd9933;
-  background-color: #553311;
-  font-size: 65px;
-  text-align: center;
+  margin-top: 3rem !important;
 }
 
-@media (max-width: 1059px) {
-  .page-banner {
-    font-size: 40px;
-    text-align: left;
-    padding-left: 15px;
-  }
+.orange-banner-italic {
+  // font-family: cursive;
+  font-style: italic;
+  font-size: 18px;
+  background-color: rgba(221, 153, 51, 0.6);
+  display: inline;
+  padding: 12px 15px 12px 15px;
+}
+
+svg.svg-inline--fa.fa-bars {
+  color: $flambeau-orange !important;
 }
 
 .woodbadge {
@@ -47,8 +68,96 @@ $body-bg: #ffffff;
   color: #553311;
 }
 
+.bg-brown {
+  color: $flambeau-orange;
+  background-color: #553311 !important;
+}
+
+.bg-white {
+  background-color: white !important;
+}
+
+// Carousel
+.d-block {
+  display: block;
+}
+
+.w-100 img {
+  height: 100%;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+
+.img-slide {
+  background-color: $flambeau-red;
+  height: 600px;
+  align-content: center;
+}
+
+.carousel-indicators li {
+  background-color: darkgray; //this can be whatever color you want
+}
+
+//Navigation
+
+.sticky-wrapper {
+  position: relative;
+}
+
+.sticky .sticky-inner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.navbar-brand {
+  display: inline-block;
+  // padding-top: $navbar-brand-padding-y;
+  // padding-bottom: $navbar-brand-padding-y;
+  // margin-right: $navbar-padding-x;
+  // @include font-size($navbar-brand-font-size);
+  font-family: "woodbadge";
+  line-height: inherit;
+  white-space: nowrap;
+  color: #dd9933 !important;
+  a {
+    color: #dd9933 !important;
+  }
+}
+
+$navbar-brown-color: rgba($flambeau-orange, 0.5);
+$navbar-brown-hover-color: rgba($flambeau-orange, 0.7);
+$navbar-brown-active-color: rgba($flambeau-orange, 0.9);
+$navbar-brown-disabled-color: rgba($flambeau-orange, 0.3);
+$navbar-brown-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><path stroke='#{$flambeau-orange}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !important;
+$navbar-brown-toggler-border-color: rgba($flambeau-orange, 0.1);
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-collapse {
+    align-self: flex-end !important;
+    flex-direction: row-reverse;
+  }
+}
+
+.nav-links a {
+  font-family: "woodbadge" !important;
+  color: #dd9933 !important;
+}
+
+button.navbar-toggler.collapsed {
+  border: solid 1px $flambeau-orange;
+  font-size: 1.7rem;
+}
+
 .home {
-  background-image: url("../../assets/images/canoe.jpg");
+  background-image: url("../../assets/images/canoe_large.png");
   background-position-x: center;
   background-position-y: bottom;
   background-repeat: no-repeat;
@@ -57,5 +166,5 @@ $body-bg: #ffffff;
 
 .jumbotron {
   border-radius: 0px !important;
-  height: 400px;
+  height: 440px;
 }
