@@ -22,6 +22,7 @@ $warning: $yellow !default;
 $danger: $orange !default;
 $light: $gray-100 !default;
 $dark: $gray-800 !default;
+$dark-brown: $flambeau-dark-brown;
 
 $theme-colors: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
@@ -34,19 +35,31 @@ $theme-colors: map-merge(
     "warning": $warning,
     "danger": $danger,
     "light": $light,
-    "dark": $dark
+    "dark": $dark,
+    "dark-brown": $dark-brown
   ),
   $theme-colors
 );
 
 //Typography
+:root {
+  font-size: 62.5%;
+  body {
+    margin: 0;
+    // Body font size 16px
+    font-size: 2.2rem;
+  }
+}
+
 $navbar-brand-font-size: 2.3rem;
 $banner-font-size: 2.7rem;
 
-h1.banner {
-  color: $flambeau-dark-brown;
-  font-family: "woodbadge";
-  margin-top: 3rem !important;
+div.banner {
+  font-size: 5.6rem;
+  display: block;
+  line-height: 5.8rem;
+  margin-top: 7rem !important;
+  margin-bottom: 1.2rem !important;
 }
 
 .orange-banner-italic {
@@ -62,15 +75,21 @@ svg.svg-inline--fa.fa-bars {
   color: $flambeau-orange !important;
 }
 
+h1 {
+  font-size: 5rem !important;
+}
+
 .woodbadge {
   font-family: "woodbadge";
-  font-size: 50px;
-  color: #553311;
+}
+
+.dark-brown {
+  color: $dark-brown;
 }
 
 .bg-brown {
   color: $flambeau-orange;
-  background-color: #553311 !important;
+  background-color: $dark-brown;
 }
 
 .bg-white {
@@ -95,12 +114,12 @@ svg.svg-inline--fa.fa-bars {
 
 .img-slide {
   background-color: $flambeau-red;
-  height: 600px;
+  height: 30rem;
   align-content: center;
 }
 
 .carousel-indicators li {
-  background-color: darkgray; //this can be whatever color you want
+  background-color: $dark-brown; //this can be whatever color you want
 }
 
 //Navigation
@@ -124,6 +143,7 @@ svg.svg-inline--fa.fa-bars {
   // margin-right: $navbar-padding-x;
   // @include font-size($navbar-brand-font-size);
   font-family: "woodbadge";
+  font-size: 3.8rem !important;
   line-height: inherit;
   white-space: nowrap;
   color: #dd9933 !important;
@@ -139,21 +159,36 @@ $navbar-brown-disabled-color: rgba($flambeau-orange, 0.3);
 $navbar-brown-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><path stroke='#{$flambeau-orange}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !important;
 $navbar-brown-toggler-border-color: rgba($flambeau-orange, 0.1);
 
+.dropdown-menu {
+  font-size: 2.8rem !important;
+}
+
+.nav-links a {
+  font-family: "woodbadge" !important;
+  font-size: 2.8rem !important;
+  color: $flambeau-orange !important;
+}
+
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-collapse {
     align-self: flex-end !important;
     flex-direction: row-reverse;
   }
-}
 
-.nav-links a {
-  font-family: "woodbadge" !important;
-  color: #dd9933 !important;
+  .dropdown-menu {
+    font-size: 2.4rem !important;
+  }
+
+  .nav-links a {
+    font-family: "woodbadge" !important;
+    font-size: 2.4rem !important;
+    color: $flambeau-orange !important;
+  }
 }
 
 button.navbar-toggler.collapsed {
   border: solid 1px $flambeau-orange;
-  font-size: 1.7rem;
+  // font-size: 1.7rem;
 }
 
 .home {

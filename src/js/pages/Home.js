@@ -9,7 +9,9 @@ class Home extends Component {
           <div class="container">
             <div class="row">
               <div class="col-md-7">
-                <h1 class="woodbadge">Our Cabin on the Flambeau</h1>
+                <div class="woodbadge dark-brown banner">
+                  Our Cabin on the Flambeau
+                </div>
                 <p>
                   <div class="orange-banner-italic">Come explore or relax!</div>
                 </p>
@@ -19,7 +21,7 @@ class Home extends Component {
         </Jumbotron>
         <div class="container">
           <header>
-            <h3>The Jipson Cabin on the Flambeau</h3>
+            <h1 class="dark-brown">The Jipson Cabin on the Flambeau</h1>
 
             <p>Welcome to our cabin!</p>
           </header>
