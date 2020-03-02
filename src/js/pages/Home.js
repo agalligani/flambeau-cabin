@@ -6,22 +6,24 @@ class Home extends Component {
     return (
       <Fragment>
         <Jumbotron className="home">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-7">
-                <div class="woodbadge dark-brown banner">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-7">
+                <div className="woodbadge dark-brown banner">
                   Our Cabin on the Flambeau
                 </div>
                 <p>
-                  <div class="orange-banner-italic">Come explore or relax!</div>
+                  <div className="orange-banner-italic">
+                    Come explore or relax!
+                  </div>
                 </p>
               </div>
             </div>
           </div>
         </Jumbotron>
-        <div class="container">
+        <div className="container">
           <header>
-            <h1 class="dark-brown">The Jipson Cabin on the Flambeau</h1>
+            <h1 className="dark-brown">The Jipson Cabin on the Flambeau</h1>
 
             <p>Welcome to our cabin!</p>
           </header>

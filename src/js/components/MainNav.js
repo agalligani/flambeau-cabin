@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 export default class MainNav extends Component {
   render() {
     return (
-      <div class="sticky-wrapper">
+      <div className="sticky-wrapper">
         <Navbar expand="lg" className={"bg-brown sticky-wrapper"}>
           <Navbar.Brand href="#home">Flambeau Cabin</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav">

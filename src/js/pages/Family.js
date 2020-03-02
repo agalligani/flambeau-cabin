@@ -30,19 +30,19 @@ class Family extends Component {
   };
   render() {
     return (
-      <div class="container">
+      <div className="container">
         <p>
-          <h1 class="banner">Family Trees</h1>
+          <h1 className="banner">Family Trees</h1>
         </p>
 
-        <div class="row">
-          <div class="col-md-12">
+        <div className="row">
+          <div className="col-md-12">
             <Carousel>
               {this.state.slides.map((slide, i) => {
                 return (
                   <Carousel.Item key={i}>
                     <div className="d-block w-100">
-                      <div class="img-slide">
+                      <div className="img-slide">
                         <img
                           className="center"
                           src={
@@ -64,8 +64,8 @@ class Family extends Component {
             </Carousel>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-12">
+        <div className="row">
+          <div className="col-md-12">
             Maecenas sed diam eget risus varius blandit sit amet non magna.
             Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
             Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo

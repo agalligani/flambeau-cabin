@@ -12,9 +12,9 @@ class About extends Component {
 
   render() {
     return (
-      <div class="container">
+      <div className="container">
         <p>
-          <h1 class="banner">Cabin History</h1>
+          <h1 className="banner">Cabin History</h1>
         </p>
         <div>
           <h3>Skunk Frank Poem</h3>
