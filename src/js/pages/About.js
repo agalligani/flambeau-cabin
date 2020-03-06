@@ -13,9 +13,7 @@ class About extends Component {
   render() {
     return (
       <div className="container">
-        <p>
-          <h1 className="banner">Cabin History</h1>
-        </p>
+        <h1 className="banner">Cabin History</h1>
         <div>
           <h3>Skunk Frank Poem</h3>
           <p>

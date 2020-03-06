@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import Contact from "./pages/Contact";
 import MainNav from "./components/MainNav";
 import About from "./pages/About";
 import History from "./pages/History";
+import Users from "./components/Users";
 import Family from "./pages/Family";
 import Home from "./pages/Home";
-import Contact from "./pages/Contact";
-import Users from "./components/Users";
 import { library } from "@fortawesome/fontawesome-svg-core";
 // import { fab } from "@fortawesome/free-brands-svg-icons";
 import {
@@ -34,6 +34,11 @@ class App extends Component {
             </Route>
             <Route path="/users">
               <RenderUsers />
+            </Route>
+            <Route path="/contact">
+              {() => {
+                return <Contact />;
+              }}
             </Route>
             <Route path="/history">
               {() => {

@@ -1,0 +1,17 @@
+{
+  "settings": {
+    "react": {
+      "version": "16.12.0"
+    },
+    "linkComponents": ["Hyperlink", { "name": "Link", "linkAttribute": "to" }]
+  },
+  "extends": ["plugin:react/recommended"],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "parser": "babel-eslint"
+}
