@@ -11,27 +11,38 @@ const data = {
 };
 
 export default class Contact extends Component {
-  state = { name: "", email: "" };
+  state = {
+    name: "",
+    email: "",
+    url: "http://admin.flambeaucabin.com/jsonapi/node/article/"
+  };
 
-  _handleSubmit = event => {
+  _handleSubmit = async event => {
     event.preventDefault();
-    fetch("http://admin.flambeaucabin.com/jsonapi/node/article/", {
+    const response = await fetch(this.state.url, {
       method: "POST",
+      mode: "cors",
+      cache: "no-cache",
+      credentials: "include",
       headers: {
         Accept: "application/vnd.api+json",
-        "Content-Type": "application/vnd.api+json",
-        Authorization: "Basic YWdhbGxpZ2FuaTpDb3dGbG9wIzEyMw=="
+        "Content-type": "application/vnd.api+json"
       },
-      user: "agalligani:CowFlop#123",
-      body: JSON.stringify(data)
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log("Success:", data);
-      })
-      .catch(error => {
-        console.error("Error:", error);
-      });
+      body: {
+        data: {
+          type: "node--article",
+          attributes: {
+            title: "My custom title",
+            body: {
+              value: "Custom value",
+              format: "plain_text"
+            }
+          }
+        }
+      }
+    });
+    const jsonData = await response.json();
+    console.log(jsonData);
   };
 
   handleChange = event => {
@@ -73,7 +84,9 @@ export default class Contact extends Component {
                 name="body"
               ></textarea>
               <br />
-              <input type="submit" value="Add Article" />
+              <Button type="submit" value="Add Article" title="Add Article">
+                Add Article
+              </Button>
             </form>
           </Col>
           <Col className="col col-md-1">&nbsp;</Col>

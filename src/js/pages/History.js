@@ -8,18 +8,17 @@ export default class History extends Component {
     data: []
   };
 
-  componentDidMount() {
-    fetch(`http://admin.flambeaucabin.com/jsonapi/node/article/`)
-      .then(res => {
-        return res.json();
-      })
-      .then(json => this.setState({ data: json.data, isLoading: false }))
-      .catch(err => {
-        console.log("error:", err);
-      });
+  async componentDidMount() {
+    const response = await fetch(
+      "http://admin.flambeaucabin.com/jsonapi/node/article/"
+    );
+    // const jsonData = await response.json();
+    const jsonData = await response.json();
+    console.log(jsonData.data);
+    this.setState({ data: jsonData.data, isLoading: false });
   }
 
-  renderArticles = articles => {
+  renderArticles = _ => {
     if (this.state.isLoading) {
       return <h1>Loading</h1>;
     } else {
@@ -33,7 +32,6 @@ export default class History extends Component {
           </Fragment>
         );
       });
-
       return n;
     }
   };
