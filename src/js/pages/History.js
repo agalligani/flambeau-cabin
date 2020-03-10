@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import parse from "html-react-parser";
 
 export default class History extends Component {
   state = {
@@ -28,7 +29,7 @@ export default class History extends Component {
             <h1>{article.attributes.title}</h1>
             <h3>{article.attributes.created}</h3>
             <h2>{article.attributes.summary}</h2>
-            <div>{article.attributes.body.processed}</div>
+            <div>{parse(article.attributes.body.processed)}</div>
           </Fragment>
         );
       });
