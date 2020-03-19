@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
 import Contact from "./pages/Contact";
+import Login from "./pages/Login";
 import MainNav from "./components/MainNav";
 import About from "./pages/About";
 import History from "./pages/History";
 import Users from "./components/Users";
 import Family from "./pages/Family";
 import Home from "./pages/Home";
-import store from "./store";
 import { library } from "@fortawesome/fontawesome-svg-core";
 // import { fab } from "@fortawesome/free-brands-svg-icons";
 import {
@@ -26,38 +25,41 @@ library.add(faCheckSquare, faCoffee, faBars);
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <Router>
-          <MainNav></MainNav>
-          <Route path="/home" render={() => <div>Home</div>} />
-          <div>
-            <Switch>
-              <Route path="/about">
-                <RenderAbout />
-              </Route>
-              <Route path="/users">
-                <RenderUsers />
-              </Route>
-              <Route path="/contact">
-                {() => {
-                  return <Contact />;
-                }}
-              </Route>
-              <Route path="/history">
-                {() => {
-                  return <History />;
-                }}
-              </Route>
-              <Route path="/family">
-                <RenderFamily />
-              </Route>
-              <Route path="/">
-                <RenderHome />
-              </Route>
-            </Switch>
-          </div>
-        </Router>
-      </Provider>
+      <Router>
+        <MainNav></MainNav>
+        <Route path="/home" render={() => <div>Home</div>} />
+        <div>
+          <Switch>
+            <Route path="/about">
+              <RenderAbout />
+            </Route>
+            <Route path="/users">
+              <RenderUsers />
+            </Route>
+            <Route path="/contact">
+              {() => {
+                return <Contact />;
+              }}
+            </Route>
+            <Route path="/login">
+              {() => {
+                return <Login />;
+              }}
+            </Route>
+            <Route path="/history">
+              {() => {
+                return <History />;
+              }}
+            </Route>
+            <Route path="/family">
+              <RenderFamily />
+            </Route>
+            <Route path="/">
+              <RenderHome />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
