@@ -13,29 +13,29 @@ const data = {
 };
 
 export default class Login extends Component {
-  //   state = {
-  //     name: "",
-  //     email: "",
-  //     url: "http://admin.flambeaucabin.com/jsonapi/node/article/"
-  //   };
+  state = {
+    name: "",
+    password: ""
+  };
 
   _handleSubmit = async event => {
     event.preventDefault();
-    const response = await fetch(
-      "http://adminflambeau.com/user/login?_format=json",
-      {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json"
-        },
-        data: JSON.stringify({
-          user: "agalligani",
-          pass: "CowFlop#1234"
-        }),
-        params: { _format: "json" }
-      }
-    );
-    console.log(response);
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    const body = JSON.stringify({
+      name: this.state.name,
+      pass: this.state.password
+    });
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: body,
+      redirect: "follow"
+    };
+    fetch("http://adminflambeau.com/user/login?_format=json", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log("error", error));
   };
 
   handleChange = event => {
@@ -44,18 +44,18 @@ export default class Login extends Component {
 
   // handleSubmit = event => {
   //   event.preventDefault();
-  //   console.log("User name" + this.state.name);
+  // console.log("User name" + this.state.name);
   //   console.log("User email" + this.state.email);
   //   const url = "http://admin.flambeaucabin.com/jsonapi/node/article/";
   //   const data = { name: this.state.name, email: this.state.email };
 
   render() {
     return (
-      <Container className="contact-form">
+      <Container className="login-form">
         <Row>
           <Col className="col col-md-1">&nbsp;</Col>
           <Col className="col col-md-10">
-            <h1 className="dark-brown">Article</h1>
+            <h1 className="dark-brown">Log in</h1>
           </Col>
           <Col className="col col-md-1">&nbsp;</Col>
         </Row>
@@ -69,16 +69,14 @@ export default class Login extends Component {
               <label type="password" htmlFor="password">
                 Password
               </label>
-              <input type="text" name="password" onChange={this.handleChange} />
-              <textarea
-                cols="70"
-                rows="13"
+              <input
+                type="password"
+                name="password"
                 onChange={this.handleChange}
-                name="body"
-              ></textarea>
+              />
               <br />
-              <Button type="submit" value="Add Article" title="Add Article">
-                Add Article
+              <Button type="submit" value="LOGIN" title="LOGIN">
+                Log In
               </Button>
             </form>
           </Col>

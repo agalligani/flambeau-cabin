@@ -2,7 +2,7 @@ import axios from "axios";
 import config from "../../config/config";
 
 export default async () => {
-  const url = config.drupal_url + "/user/login";
+  const url = config.drupal_url + "/user/login?_format=json";
   try {
     let res = await axios.post(url, {
       headers: { "Content-Type": "application/json" },
