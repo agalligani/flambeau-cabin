@@ -12,11 +12,9 @@ class Home extends Component {
                 <div className="woodbadge dark-brown banner">
                   Our Cabin on the Flambeau
                 </div>
-                <p>
-                  <div className="orange-banner-italic">
-                    Come explore or relax!
-                  </div>
-                </p>
+                <div className="orange-banner-italic">
+                  Come explore or relax!
+                </div>
               </div>
             </div>
           </div>

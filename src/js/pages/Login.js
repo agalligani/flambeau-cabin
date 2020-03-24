@@ -1,21 +1,19 @@
 import React, { Component } from "react";
-import axios from "axios";
-import config from "../../config/config";
+import events from "events";
+// import ajax from "./ajax";
 import { Container, Row, Col, Button } from "react-bootstrap";
+import NodeList from "../components/DrupalComponents/NodeList";
+import NodeForm from "../components/DrupalComponents/NodeForm";
 
-/******************
- **
- *******************/
-
-const data = {
-  title: "This is me!",
-  body: "hi there!"
-};
+// Create an emitter object so that we can do pub/sub
+const emitter = new events.EventEmitter();
 
 export default class Login extends Component {
   state = {
     name: "",
-    password: ""
+    password: "",
+    csrf: "",
+    mode: "login"
   };
 
   _handleSubmit = async event => {
@@ -32,9 +30,14 @@ export default class Login extends Component {
       body: body,
       redirect: "follow"
     };
-    fetch("http://adminflambeau.com/user/login?_format=json", requestOptions)
+    fetch(
+      "http://admin.flambeaucabin.com/user/login?_format=json",
+      requestOptions
+    )
       .then(response => response.text())
-      .then(result => console.log(result))
+      .then(result =>
+        this.setState({ mode: "list", csrf: JSON.parse(result).csrf_token })
+      )
       .catch(error => console.log("error", error));
   };
 
@@ -42,47 +45,59 @@ export default class Login extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  // handleSubmit = event => {
-  //   event.preventDefault();
-  // console.log("User name" + this.state.name);
-  //   console.log("User email" + this.state.email);
-  //   const url = "http://admin.flambeaucabin.com/jsonapi/node/article/";
-  //   const data = { name: this.state.name, email: this.state.email };
+  formFactory = () => {
+    switch (this.state.mode) {
+      case "login":
+        return (
+          <Container className="login-form">
+            <h4>{this.state.csrf}</h4>
+            <Row>
+              <Col className="col col-md-1">&nbsp;</Col>
+              <Col className="col col-md-10">
+                <h1 className="dark-brown">Log in</h1>
+              </Col>
+              <Col className="col col-md-1">&nbsp;</Col>
+            </Row>
+            <Row>
+              <Col className="col col-md-1">&nbsp;</Col>
+              <Col className="col col-md-10">
+                <form onSubmit={this._handleSubmit}>
+                  <label htmlFor="name">Name</label>
+                  <input type="text" name="name" onChange={this.handleChange} />
+                  <br />
+                  <label type="password" htmlFor="password">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    name="password"
+                    onChange={this.handleChange}
+                  />
+                  <br />
+                  <Button type="submit" value="LOGIN" title="LOGIN">
+                    Log In
+                  </Button>
+                </form>
+              </Col>
+              <Col className="col col-md-1">&nbsp;</Col>
+            </Row>
+          </Container>
+        );
+        break;
+      case "edit":
+        return <NodeForm />;
+        break;
+      default:
+        return (
+          <Container className="login-form">
+            <h4>{this.state.csrf}</h4>
+            <NodeList token={this.state.csrf} />
+          </Container>
+        );
+    }
+  };
 
   render() {
-    return (
-      <Container className="login-form">
-        <Row>
-          <Col className="col col-md-1">&nbsp;</Col>
-          <Col className="col col-md-10">
-            <h1 className="dark-brown">Log in</h1>
-          </Col>
-          <Col className="col col-md-1">&nbsp;</Col>
-        </Row>
-        <Row>
-          <Col className="col col-md-1">&nbsp;</Col>
-          <Col className="col col-md-10">
-            <form onSubmit={this._handleSubmit}>
-              <label htmlFor="name">Name</label>
-              <input type="text" name="name" onChange={this.handleChange} />
-              <br />
-              <label type="password" htmlFor="password">
-                Password
-              </label>
-              <input
-                type="password"
-                name="password"
-                onChange={this.handleChange}
-              />
-              <br />
-              <Button type="submit" value="LOGIN" title="LOGIN">
-                Log In
-              </Button>
-            </form>
-          </Col>
-          <Col className="col col-md-1">&nbsp;</Col>
-        </Row>
-      </Container>
-    );
+    return this.formFactory();
   }
 }

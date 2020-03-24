@@ -13,14 +13,14 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faCheckSquare,
   faCoffee,
-  faBars
+  faBars,
+  faEdit,
+  faTrash,
+  faPlusSquare
 } from "@fortawesome/free-solid-svg-icons";
 
-// import Home from "./components/Home";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
-// library.add(fab, faCheckSquare, faCoffee);
-library.add(faCheckSquare, faCoffee, faBars);
+library.add(faCheckSquare, faCoffee, faBars, faEdit, faTrash, faPlusSquare);
 
 class App extends Component {
   render() {
