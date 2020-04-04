@@ -30,15 +30,17 @@ export default class Login extends Component {
       body: body,
       redirect: "follow"
     };
-    fetch(
-      "http://admin.flambeaucabin.com/user/login?_format=json",
-      requestOptions
-    )
-      .then(response => response.text())
-      .then(result =>
-        this.setState({ mode: "list", csrf: JSON.parse(result).csrf_token })
-      )
-      .catch(error => console.log("error", error));
+
+    try {
+      let response = await fetch(
+        "http://adminflambeau.com/user/login?_format=json",
+        requestOptions
+      );
+      let result = await response.text();
+      console.log(result);
+    } catch (error) {
+      console.log("error", error);
+    }
   };
 
   handleChange = event => {
