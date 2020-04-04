@@ -22,7 +22,6 @@ class Home extends Component {
         <div className="container">
           <header>
             <h1 className="dark-brown">The Jipson Cabin on the Flambeau</h1>
-
             <p>Welcome to our cabin!</p>
           </header>
           <main></main>

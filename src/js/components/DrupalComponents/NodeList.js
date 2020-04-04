@@ -4,6 +4,7 @@ import events from "events";
 import ajax from "../../../axios/axios";
 import { Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PropTypes from "prop-types";
 
 const emitter = new events.EventEmitter();
 
@@ -25,6 +26,7 @@ class NodeList extends Component {
   async componentDidMount() {
     await this.refresh();
     emitter.addListener("NODE_UPDATED", this.refresh);
+    console.log("props", this.props);
   }
 
   async refresh() {
@@ -41,6 +43,10 @@ class NodeList extends Component {
       alert(e);
     }
   }
+
+  handleEditClick = (n = null) => {
+    this.props._clickFunction(n);
+  };
 
   render() {
     const deleteNode = async nid => {
@@ -78,7 +84,9 @@ class NodeList extends Component {
                 <FontAwesomeIcon
                   icon="edit"
                   focusable="true"
-                  onClick={e => editNode(node.nid)}
+                  onClick={e => {
+                    this.handelEditClick(node.nid);
+                  }}
                 />
                 <FontAwesomeIcon
                   icon="trash"
@@ -93,5 +101,10 @@ class NodeList extends Component {
     );
   }
 }
+
+NodeList.propTypes = {
+  nid: PropTypes.number,
+  _clickFunction: PropTypes.func
+};
 
 export default NodeList;

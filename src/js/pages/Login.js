@@ -45,56 +45,58 @@ export default class Login extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  formFactory = () => {
-    switch (this.state.mode) {
-      case "login":
-        return (
-          <Container className="login-form">
-            <h4>{this.state.csrf}</h4>
-            <Row>
-              <Col className="col col-md-1">&nbsp;</Col>
-              <Col className="col col-md-10">
-                <h1 className="dark-brown">Log in</h1>
-              </Col>
-              <Col className="col col-md-1">&nbsp;</Col>
-            </Row>
-            <Row>
-              <Col className="col col-md-1">&nbsp;</Col>
-              <Col className="col col-md-10">
-                <form onSubmit={this._handleSubmit}>
-                  <label htmlFor="name">Name</label>
-                  <input type="text" name="name" onChange={this.handleChange} />
-                  <br />
-                  <label type="password" htmlFor="password">
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    name="password"
-                    onChange={this.handleChange}
-                  />
-                  <br />
-                  <Button type="submit" value="LOGIN" title="LOGIN">
-                    Log In
-                  </Button>
-                </form>
-              </Col>
-              <Col className="col col-md-1">&nbsp;</Col>
-            </Row>
-          </Container>
-        );
-        break;
-      case "edit":
-        return <NodeForm />;
-        break;
-      default:
-        return (
-          <Container className="login-form">
-            <h4>{this.state.csrf}</h4>
-            <NodeList token={this.state.csrf} />
-          </Container>
-        );
+  _handleEdit = (nid = null) => {
+    if (nid) {
+      alert(nid);
+      return <NodeForm />;
+    } else {
+      alert(nid);
+      return <NodeForm />;
     }
+  };
+
+  formFactory = () => {
+    return (
+      <Container className="login-form">
+        <h4>{this.state.csrf}</h4>
+        <Row>
+          <Col className="col col-md-1">&nbsp;</Col>
+          <Col className="col col-md-10">
+            <h1 className="dark-brown">Log in</h1>
+          </Col>
+          <Col className="col col-md-1">&nbsp;</Col>
+        </Row>
+        <Row>
+          <Col className="col col-md-1">&nbsp;</Col>
+          <Col className="col col-md-10">
+            <form onSubmit={this._handleSubmit}>
+              <label htmlFor="name">Name</label>
+              <input
+                type="text"
+                name="name"
+                onChange={this.handleChange}
+                value="agalligani"
+              />
+              <br />
+              <label type="password" htmlFor="password">
+                Password
+              </label>
+              <input
+                type="password"
+                name="password"
+                // value="CowFlop#1234"
+                onChange={this.handleChange}
+              />
+              <br />
+              <Button type="submit" value="LOGIN" title="LOGIN">
+                Log In
+              </Button>
+            </form>
+          </Col>
+          <Col className="col col-md-1">&nbsp;</Col>
+        </Row>
+      </Container>
+    );
   };
 
   render() {
