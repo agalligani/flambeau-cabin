@@ -39,16 +39,16 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
-      - run:
-          name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
-      - run:
-          name: Publish package
-          command: npm publish
-      # production:
-      #   branch: master
-      #   commands:
-      #     - scp -r flambeau-cabin/* tacitusp@104.237.144.228:/home/tacitusp/flambeaucabin.com -p 17177
+      # - run:
+      #     name: Authenticate with registry
+      #     command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
+      # - run:
+      #     name: Publish package
+      #     command: npm publish
+      production:
+        branch: master
+        commands:
+          - scp -r flambeau-cabin/* tacitusp@104.237.144.228:/home/tacitusp/flambeaucabin.com -p 17177
 
 workflows:
   version: 2
