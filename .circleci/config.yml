@@ -45,10 +45,10 @@ jobs:
       - run:
           name: Publish package
           command: npm publish
-      production:
-        branch: master
-        commands:
-          - scp -r flambeau-cabin/* tacitusp@104.237.144.228:/home/tacitusp/flambeaucabin.com -p 17177
+    production:
+      branch: master
+      commands:
+        - scp -r flambeau-cabin/* tacitusp@104.237.144.228:/home/tacitusp/flambeaucabin.com -p 17177
 
 workflows:
   version: 2
